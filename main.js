@@ -130,33 +130,6 @@ function buscarMascota() {
 
 
 
-
-
-  const esperarEstado = () => {
-    console.log('entrando a esperarEstado');
-    
-    return new Promise((resolve, reject) => {
-      console.log('esperando 2 segundos para actualizar el estado de salud');
-      setTimeout(() => {
-
-        let nuevaSalud = prompt("Ingrese el nuevo estado de salud:");
-        console.log('Estado de salud actualizado a:', nuevaSalud);
-        resolve(nuevaSalud);
-      }, 2000);
-    })
-  }
-
-
- 
-function esperarEstado() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      
-      resolve("Saludable");
-    }, 1000); 
-  });
-}
-
 async function actualizarSalud() { 
   let nombreActualizar = prompt("Ingrese el nombre de la mascota a actualizar:");
   let mascota = mascotas.find(m => m.nombre.toLowerCase() === nombreActualizar.toLowerCase());
@@ -195,7 +168,7 @@ function eliminarMascota() {
   });
 }
 
-eliminarMascota()
+ mostrarMenu()
   .then(mensaje => console.log(mensaje))
   .catch(error => console.log(error));
 
@@ -204,6 +177,8 @@ eliminarMascota()
     return new Promise(resolve => setTimeout(resolve, ms));
   }
   
+
+
   async function verMascota() {
     let cedulaVer = prompt("Ingrese su número de cédula para buscar su mascota:");
     await esperar(2000);
